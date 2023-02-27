@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
   //next.js svg
   webpack: config => {
     config.module.rules.push({
@@ -15,6 +12,7 @@ const nextConfig = {
   //server, client className 일치
   compiler: {
     styledComponents: true,
+    types: ["react/next"]
   },
 }
 
