@@ -1,65 +1,77 @@
-import Link from "next/link";
 import styled from "styled-components";
-
+import Link from "next/link";
 import Location from "../asset/location.svg";
 
 function Header() {
 	return (
-		<HeaderContainer>
-			<Logo>
-				SE
-				<Location width={"2rem"} height={"2rem"} fill={"rgb(92, 73, 142)"} />
-				ULITE
-			</Logo>
-			<nav>
-				<NavList>
-					<li>
-						<StyledLink href="/">HOME</StyledLink>
-					</li>
-					<li>
-						<StyledLink href="/info">INFO</StyledLink>
-					</li>
-					<li>
-						<StyledLink href="/plan">PLAN</StyledLink>
-					</li>
-					<li>
-						<StyledLink href="/log">LOG</StyledLink>
-					</li>
-				</NavList>
-			</nav>
-		</HeaderContainer>
+		<HeaderWrapper>
+			<HeaderContents>
+				<Logo>
+					SE
+					<Location width={"2rem"} height={"2rem"} fill={"#6554a2"} />
+					ULITE
+				</Logo>
+				<Nav>
+					<NavList>
+						<NavItem>
+							<NavLink href="/">HOME</NavLink>
+						</NavItem>
+						<NavItem>
+							<NavLink href="/info">INFO</NavLink>
+						</NavItem>
+						<NavItem>
+							<NavLink href="/plan">PLAN</NavLink>
+						</NavItem>
+						<NavItem>
+							<NavLink href="/log">LOG</NavLink>
+						</NavItem>
+					</NavList>
+				</Nav>
+			</HeaderContents>
+		</HeaderWrapper>
 	);
 }
 
 export default Header;
 
-const HeaderContainer = styled.header`
+const HeaderWrapper = styled.header`
+	position: fixed;
+	display: flex;
+	top: 0px;
+	width: 100%;
+	height: 70px;
+	background-color: #d0eeec;
+	z-index: 2;
+`;
+
+const HeaderContents = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	width: 100%;
 	padding: 0 20px;
-	border-bottom: 1px solid #a3b3b3;
-	background-color: #d0eeec;
 `;
 
 const Logo = styled.div`
-	display: flex;
-	align-items: center;
 	font-size: 2.5rem;
 	font-weight: 800;
 	color: #6554a2;
+`;
+
+const Nav = styled.nav`
+	display: flex;
 `;
 
 const NavList = styled.ul`
 	display: flex;
 	gap: 1rem;
 	list-style: none;
-	padding-left: 0px;
 `;
 
-const StyledLink = styled(Link)`
+const NavItem = styled.li``;
+
+const NavLink = styled(Link)`
 	font-size: 1.5rem;
 	font-weight: 600;
-	text-decoration: none;
-	color: #491e49;
+	color: #261d4a;
 `;
