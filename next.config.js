@@ -14,6 +14,11 @@ const nextConfig = {
     styledComponents: true,
     types: ["react/next"]
   },
+  //접근성 html lang 설정
+  i18n: {
+    locales: ["ko"],
+    defaultLocale: "ko",
+  },
 }
 
 module.exports = nextConfig

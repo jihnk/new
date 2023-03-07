@@ -7,6 +7,7 @@ import Detail from "@/components/Detail";
 import { RowBox } from "@/styles/layout";
 import { getRestaurants } from "@/api/restaurant";
 import { Restaurant } from "@/types/restaurant";
+import Head from "next/head";
 
 export default function Home({ data }: { data: any }) {
 	const {
@@ -25,24 +26,31 @@ export default function Home({ data }: { data: any }) {
 	};
 
 	return (
-		<PageWrapper>
-			<PageTitle>서울 식당 둘러보기</PageTitle>
-			<RowBox>
-				<RestaurantList>
-					{row.map((restaurant: Restaurant) => (
-						<RestaurantItem restaurant={restaurant} key={restaurant.MGTNO} />
-					))}
-				</RestaurantList>
-				<Detail />
-			</RowBox>
-			<StyledPagination
-				count={Math.ceil(list_total_count / 10)}
-				variant="outlined"
-				color="primary"
-				page={page}
-				onChange={handlePageChange}
-			/>
-		</PageWrapper>
+		<>
+			<Head>
+				<title>SEOULITE 👣 </title>
+				<meta name="keywords" content="서울 맛집, 서울 식당" />
+				<meta name="description" content="서울 맛집 목록과 상세 정보 확인" />
+			</Head>
+			<PageWrapper>
+				<PageTitle>서울 식당 둘러보기</PageTitle>
+				<RowBox>
+					<RestaurantList>
+						{row.map((restaurant: Restaurant) => (
+							<RestaurantItem restaurant={restaurant} key={restaurant.MGTNO} />
+						))}
+					</RestaurantList>
+					<Detail />
+				</RowBox>
+				<StyledPagination
+					count={Math.ceil(list_total_count / 10)}
+					variant="outlined"
+					color="primary"
+					page={page}
+					onChange={handlePageChange}
+				/>
+			</PageWrapper>
+		</>
 	);
 }
 
@@ -54,7 +62,7 @@ const PageWrapper = styled.div`
 	padding: 70px 30px;
 `;
 
-const PageTitle = styled.h1``;
+const PageTitle = styled.h2``;
 
 const RestaurantList = styled.ul`
 	width: 50%;
